@@ -15,7 +15,7 @@ function cleanText(text) {
 // --- Main OpenAI-compatible proxy route ---
 app.post("/v1/chat/completions", async (req, res) => {
   try {
-    // Forward request to Airforce API
+    // Forward request to API
     const response = await axios.post(TARGET_API, req.body, {
       headers: {
         Authorization: `Bearer ${AIRFORCE_API_KEY}`,
@@ -46,7 +46,7 @@ app.post("/v1/chat/completions", async (req, res) => {
 
 // --- Health check ---
 app.get("/", (req, res) => {
-  res.send("✅ Clean Airforce proxy running");
+  res.send("✅ Clean proxy running");
 });
 
 app.listen(PORT, () => {
